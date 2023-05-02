@@ -1,0 +1,17 @@
+package com.spring.datajpa.jpql;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.spring.datajpa.entities.ItemEntity;
+
+public interface JpqlRespositoryItementity extends JpaRepository<ItemEntity, Long> {
+
+	@Query("from ItemEntity")
+	List<ItemEntity> findAllItem();
+	
+	@Query("select itemName it, itemPrice it from ItemEntity it")
+	List<Object[]> findAllItemPartialData();
+}

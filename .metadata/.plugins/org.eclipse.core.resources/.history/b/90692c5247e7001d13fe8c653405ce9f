@@ -1,0 +1,18 @@
+package com.spring.datajpa.componentmapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class EmpDao {
+
+	public void insert() {
+		
+		Address address= new Address();
+		List<Employee> list=new ArrayList<>();		
+		List<Address> adrresslist=new ArrayList<>();
+		adrresslist.add(new Address(,"dd","BANGLAORE","BANG","KAR","IND"));
+	}
+}

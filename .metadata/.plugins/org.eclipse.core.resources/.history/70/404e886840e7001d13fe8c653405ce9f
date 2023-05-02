@@ -1,0 +1,10 @@
+package com.spring.datajpa.componentmapping;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Employee {
+	
+	
+
+}

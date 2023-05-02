@@ -1,0 +1,102 @@
+package com.spring.datajpa.singletableinheritance;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "acctype", discriminatorType = DiscriminatorType.STRING)
+public class BankDetialsEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(name="acctype",insertable=false, updatable=false)
+	private String accType;
+	private String savingAccount;
+	private String currentAccount;
+	private double amount;
+	private String name;
+	
+	public BankDetialsEntity(){}
+
+	
+	public BankDetialsEntity(String accType, String savingAccount, String currentAccount, double amount, String name) {
+		
+		this.accType = accType;
+		this.savingAccount = savingAccount;
+		this.currentAccount = currentAccount;
+		this.amount = amount;
+		this.name = name;
+	}
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public String getAccType() {
+		return accType;
+	}
+
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+
+
+	public String getSavingAccount() {
+		return savingAccount;
+	}
+
+	public void setSavingAccount(String savingAccount) {
+		this.savingAccount = savingAccount;
+	}
+
+	public String getCurrentAccount() {
+		return currentAccount;
+	}
+
+	public void setCurrentAccount(String currentAccount) {
+		this.currentAccount = currentAccount;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	@Override
+	public String toString() {
+		return "BankDetialsEntity [id=" + id + ", accType=" + accType + ", savingAccount=" + savingAccount
+				+ ", currentAccount=" + currentAccount + ", amount=" + amount + ", name=" + name + "]";
+	}
+
+	
+	
+	
+
+}

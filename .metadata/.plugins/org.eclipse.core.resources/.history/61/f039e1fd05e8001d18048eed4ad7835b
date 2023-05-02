@@ -1,0 +1,44 @@
+--This table used for "COMPONENT MAPPING IN JPA"
+create table employee(id int,
+	name varchar(30),
+	address varchar(30),
+	city varchar(20),
+	state varchar(20),
+	country varchar(20)
+);
+
+--The below two table used for ONE TO MANY AND MANY TO ONE
+create table customer(
+id int PRIMARY KEY,
+name varchar(20)
+);
+
+create table phone_number(
+id int PRIMARY KEY,
+customer_id int,
+number varchar(20),
+type varchar(20),
+FOREIGN KEY (customer_id)
+REFERENCES customer(id)
+);
+-- ************************************************************
+
+create table programmer(
+id int PRIMARY KEY,
+name varchar(20),
+salary int
+);
+
+create table project(
+id int PRIMARY KEY,
+name varchar(20)
+);
+
+create table programmers_projects(
+programmer_id int,
+project_id int,
+FOREIGN KEY(programmer_id)
+REFERENCES programmer(id),
+FOREIGN KEY (project_id)
+REFERENCES project(id)
+);

@@ -1,0 +1,21 @@
+package com.spring.datajpa.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.spring.datajpa.entities.ItemEntity;
+
+@Component
+public class ItemDaoPagination {
+	
+	
+	public void insertIlist() {
+		
+		List<ItemEntity> item=new ArrayList<>();
+		item.add(new ItemEntity("LAPTOP","20000","DUALCORE","20"));
+		
+	}
+
+}

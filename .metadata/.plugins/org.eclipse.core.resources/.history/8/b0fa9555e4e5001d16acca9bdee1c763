@@ -1,0 +1,17 @@
+package com.spring.datajpa.resitory;
+
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.spring.datajpa.entities.EmployeeEntity;
+
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long>{
+   
+     List<EmployeeEntity> findByName(String name);
+     List<EmployeeEntity> findByNameAndDepartment(String name,String department);
+     List<EmployeeEntity> findByAgeGreaterThan(String age);
+     List<EmployeeEntity> findByNameContains(String name);
+     List<EmployeeEntity> findByAgeBetween(String age,String agee);
+     List<EmployeeEntity> findByDepartmentLike(String dept);
+     List<EmployeeEntity> findByAgeIn(List<Integer> age);
+  
+}

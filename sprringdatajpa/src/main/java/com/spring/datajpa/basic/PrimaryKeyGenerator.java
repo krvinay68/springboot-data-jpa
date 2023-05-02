@@ -1,0 +1,44 @@
+package com.spring.datajpa.basic;
+
+import org.springframework.data.repository.cdi.Eager;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+//@Entity
+//@Table(name="e_pkgenerator")
+//@Eager
+public class PrimaryKeyGenerator {
+
+	//@Id
+	private String pk_name;
+	private String gen_val;
+	
+	public PrimaryKeyGenerator() {	
+	}
+	public PrimaryKeyGenerator(String pk_name, String gen_val) {
+		super();
+		this.pk_name = pk_name;
+		this.gen_val = gen_val;
+	}
+	public String getPk_name() {
+		return pk_name;
+	}
+	public void setPk_name(String pk_name) {
+		this.pk_name = pk_name;
+	}
+	public String getGen_val() {
+		return gen_val;
+	}
+	public void setGen_val(String gen_val) {
+		this.gen_val = gen_val;
+	}
+	@Override
+	public String toString() {
+		return "PrimaryKeyGenerator [pk_name=" + pk_name + ", gen_val=" + gen_val + "]";
+	}
+	
+	
+	
+}

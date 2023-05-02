@@ -1,0 +1,30 @@
+package com.spring.datajpa.multipledb;
+
+import javax.sql.DataSource;
+
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+import com.zaxxer.hikari.HikariDataSource;
+
+@Configuration
+public class Cuponconfig {
+
+	//this will read the configuration from the properties file
+	@Primary
+	@Bean(name="cuponDataSourceProperties")
+	@ConfigurationProperties("spring.datasource-cupon")
+	public DataSourceProperties cuponDataSourceProperties() {		
+			return new DataSourceProperties();
+	}
+	@Primary
+	@Bean(name="cuponDataSource")
+	public DataSource cuponDataSource() {
+		return cuponDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
+	}
+	
+	
+}

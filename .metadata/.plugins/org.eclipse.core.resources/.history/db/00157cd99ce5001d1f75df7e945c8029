@@ -1,0 +1,19 @@
+package com.spring.datajpa.commandlinerunner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.spring.datajpa.dao.EmployeeDao;
+
+public class Bootstrap implements CommandLineRunner{	
+	
+	@Autowired
+	EmployeeDao employeeDao;
+	
+	@Override
+	public void run(String... args) throws Exception {
+	
+		employeeDao.insertEmp();
+	}
+
+}

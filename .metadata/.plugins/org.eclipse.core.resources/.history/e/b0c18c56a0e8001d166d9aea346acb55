@@ -1,0 +1,29 @@
+package com.spring.datajpa.caching;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class ExamCaching {
+	
+	@Id	
+	private long id;
+	private String name;
+	private String empid;
+	private String address;
+	private String department;
+	private String age;
+	
+
+}

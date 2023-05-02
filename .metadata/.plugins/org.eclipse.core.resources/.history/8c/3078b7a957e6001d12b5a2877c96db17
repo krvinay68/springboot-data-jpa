@@ -1,0 +1,5 @@
+package com.spring.datajpa.jpql;
+
+public interface JpqlRespositoryItementity {
+
+}

@@ -1,0 +1,46 @@
+package com.spring.datajpa.caching;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.datajpa.basic.CachingRepo;
+import com.spring.datajpa.basic.EmployeeRepository;
+
+public class CachingDao {
+	@Autowired
+	CachingRepo cachingRepo;
+
+	public void insertEmp() {
+
+		List<CachingRepo> emplist = new ArrayList<>();
+
+		emplist.add(new CachingRepo("BLUE", "002", "bangalore", "JAVA_8", "28"));
+		emplist.add(new CachingRepo("Vinay", "003", "bangalore", "spring", "29"));
+		emplist.add(new CachingRepo("RRR", "004", "bangalore", "spring-BOOT", "30"));
+		emplist.add(new CachingRepo("AAA", "005", "bangalore", "spring-CLOUD", "31"));
+		emplist.add(new CachingRepo("JJ", "006", "bangalore", "spring-WEB", "39"));
+		emplist.add(new CachingRepo("Kumar", "007", "bangalore", "spring-REPO", "40"));
+
+		// this for single row insertion
+		cachingRepo.save(new CachingRepo("RED", "001", "bangalore", "JAVA", "55"));
+		// this is for multiple row insertion
+		cachingRepo.saveAll(emplist);
+	}
+
+	// THESE BELOW ALL ARE PREDIFINE METHODS
+	public void findAllEmp() {
+		List<CachingRepo> li = cachingRepo.findAll();
+		li.stream().forEach(list -> {
+			System.out.println("ID--> " + list.getId());
+			System.out.println("NAME--> " + list.getName());
+			System.out.println("EMPID--> " + list.getEmpid());
+			System.out.println("ADDRR--> " + list.getAddress());
+			System.out.println("DEPAR--> " + list.getDepartment());
+
+		});
+	}
+
+
+}

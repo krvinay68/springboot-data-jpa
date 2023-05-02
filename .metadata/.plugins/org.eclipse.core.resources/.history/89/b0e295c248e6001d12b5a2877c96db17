@@ -1,0 +1,48 @@
+package com.spring.datajpa.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Component;
+
+import com.spring.datajpa.entities.ItemEntity;
+import com.spring.datajpa.resitory.ItemPaginationRespository;
+
+@Component
+public class ItemDaoPagination {
+	
+	@Autowired
+	ItemPaginationRespository itemPaginationRespository;
+	
+	public void insertIlist() {
+		
+		List<ItemEntity> item=new ArrayList<>();
+		item.add(new ItemEntity("LAPTOP","20000","DUALCORE","20"));
+		item.add(new ItemEntity("LAPTOP_1","30000","CORE","21"));
+		item.add(new ItemEntity("LAPTOP_2","40000","CORE","22"));
+		item.add(new ItemEntity("LAPTOP_3","10000","I3","23"));
+		item.add(new ItemEntity("LAPTOP_4","70000","I4","29"));
+		item.add(new ItemEntity("LAPTO_5","80000","I5","30"));
+		item.add(new ItemEntity("DESKTOP_1","30000","DUALCORE","33"));
+		item.add(new ItemEntity("DESKTOP_2","10000","CORE","34"));
+		item.add(new ItemEntity("DESKTOP_3","90000","DUALCORE","66"));
+		item.add(new ItemEntity("TABLET_1","40000","I2","70"));
+		item.add(new ItemEntity("TABLET_2","30000","DUALCORE","80"));
+		item.add(new ItemEntity("TABLET_3","1000","CORE","70"));
+		item.add(new ItemEntity("TABLET_4","60000","DUALCORE","90"));
+		item.add(new ItemEntity("IPOD","110000","CORE","21"));
+		
+		itemPaginationRespository;		
+		
+	}
+	public void findAllbyPaging() {
+		
+		PageRequest pageable=new PageRequest(0,2, 2);
+		ItemEntity itemEntity=itemPaginationRespository.findAll(pageable);
+		
+	}
+
+}

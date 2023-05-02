@@ -1,0 +1,8 @@
+package com.spring.datajpa.singletableinheritance;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class BankDetialsEntity {
+
+}

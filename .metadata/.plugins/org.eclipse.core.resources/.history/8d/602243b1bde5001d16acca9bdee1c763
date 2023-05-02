@@ -1,0 +1,47 @@
+package com.spring.datajpa.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.spring.datajpa.entities.EmployeeEntity;
+import com.spring.datajpa.resitory.EmployeeRepository;
+@Component
+public class EmployeeDao {
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	public void insertEmp() {
+		
+		List<EmployeeEntity> emplist=new ArrayList<>();
+		
+		emplist.add(new EmployeeEntity("BLUE","002","bangalore","JAVA_8"));
+		emplist.add(new EmployeeEntity("vinay","003","bangalore","spring"));
+		emplist.add(new EmployeeEntity("vinay","004","bangalore","spring-BOOT"));
+		emplist.add(new EmployeeEntity("vinay","005","bangalore","spring-CLOUD"));
+		emplist.add(new EmployeeEntity("vinay","006","bangalore","spring-WEB"));
+		emplist.add(new EmployeeEntity("vinay","007","bangalore","spring-REPO"));	
+		
+		//this for single row insertion
+		employeeRepository.save(new EmployeeEntity("RED","001","bangalore","JAVA"));		
+		//this is for multiple row insertion
+		employeeRepository.saveAll(emplist);
+	}
+	public void findAllEmp() {		
+		List<EmployeeEntity> li= employeeRepository.findAll();
+		li.stream().forEach(list -> {
+			System.out.println("ID--> "+list.getId());
+			System.out.println("NAME--> "+list.getName());
+			System.out.println("EMPID--> "+list.getEmpid());
+			System.out.println("ADDRR--> "+list.getAddress());
+			System.out.println("DEPAR--> "+list.getDepartment());
+			
+		});
+	}
+	public void findEmpById() {		
+		EmployeeEntity e=employeeRepository.findById(1l).get();
+		System.out.println("-------> "+e);
+	}
+}

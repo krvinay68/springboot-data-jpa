@@ -1,0 +1,46 @@
+/**
+ * THIS IS FOR ONE TO PNE OF PROJECT CLASS
+ * IF WANT TO PERFORM CRUD OPERATION PLEASE CREATE THE JpaRespository
+ */
+
+package com.spring.datajpa.relationship;
+
+import java.util.Date;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+
+public class License {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String type;
+	
+	@Temporal(TemporalType.DATE)
+	private Date valid_from;
+	@Temporal(TemporalType.DATE)
+	private Date valid_tp;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "person_id")
+	private Person person;
+}

@@ -1,0 +1,23 @@
+/**
+ * THIS IS EXMAPLE OF PAGING AND SORTING IN JPA
+ * 
+ */
+
+
+package com.spring.datajpa.resitory;
+
+import java.util.List;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.spring.datajpa.entities.ItemEntity;
+
+public interface ItemPaginationRespository
+		extends JpaRepository<ItemEntity, Long>, PagingAndSortingRepository<ItemEntity, Long> {
+
+	// CUSTOM METHOD EXAMPLE
+	List<ItemEntity> findByItemQuantityIn(List<String> itemQuantity, PageRequest pageRequest);
+
+}

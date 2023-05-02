@@ -1,0 +1,47 @@
+package com.spring.datajpa.caching;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.spring.datajpa.basic.ExamCaching;
+import com.spring.datajpa.basic.EmployeeRepository;
+
+@Component
+public class CachingDao {
+	@Autowired
+	CachingRepo cachingRepo;
+
+	public void insertEmp() {
+
+		List<ExamCaching> emplist = new ArrayList<>();
+		ExamCaching examCaching= new ExamCaching();
+				
+		examCaching.setAddress("BLUE");
+		examCaching.setAge("002");
+		examCaching.setEmpid("bangalore");
+		examCaching.setName("JAVA_8");
+		examCaching.setDepartment("28");
+	
+		emplist.add(examCaching);
+     	// this is for multiple row insertion
+		cachingRepo.saveAll(emplist);
+	}
+
+	// THESE BELOW ALL ARE PREDIFINE METHODS
+	public void findAllEmp() {
+		List<ExamCaching> li = cachingRepo.findAll();
+		li.stream().forEach(list -> {
+			System.out.println("ID--> " + list.getId());
+			System.out.println("NAME--> " + list.getName());
+			System.out.println("EMPID--> " + list.getEmpid());
+			System.out.println("ADDRR--> " + list.getAddress());
+			System.out.println("DEPAR--> " + list.getDepartment());
+
+		});
+	}
+
+
+}

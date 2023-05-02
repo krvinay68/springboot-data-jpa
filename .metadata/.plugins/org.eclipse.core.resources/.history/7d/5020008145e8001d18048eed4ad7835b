@@ -1,0 +1,5 @@
+package com.spring.datajpa.multipledb;
+
+public class Cuponconfig {
+
+}

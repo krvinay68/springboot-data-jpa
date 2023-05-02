@@ -1,0 +1,73 @@
+package com.spring.datajpa.singletableinheritance;
+
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "d", discriminatorType = DiscriminatorType.STRING)
+public class BankDetialsEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String accountType;
+	private double amount;
+	private String name;
+	
+	public BankDetialsEntity(){}
+
+	public BankDetialsEntity(String accountType, double amount, String name) {
+		super();
+		this.accountType = accountType;
+		this.amount = amount;
+		this.name = name;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "BankDetialsEntity [id=" + id + ", accountType=" + accountType + ", amount=" + amount + ", name=" + name
+				+ "]";
+	}
+	
+	
+
+}

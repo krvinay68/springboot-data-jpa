@@ -1,0 +1,24 @@
+package com.spring.datajpa.transactionmanagement;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BankAccountImp  implements BankAccountServive{
+
+	@Autowired
+	BankAccRepository bankAccRepository;
+	
+	@Override
+	public void transfer(int amount) {
+		
+		BankAccount redbankAccount=bankAccRepository.findById(1).get();
+		redbankAccount.setBal(redbankAccount.getBal()-amount);
+		bankAccRepository.save(redbankAccount);
+		
+		BankAccount bluebankAccount=bankAccRepository.findById(2).get();
+		bluebankAccount.setBal(bluebankAccount.getBal()+amount);
+		bankAccRepository.save(bluebankAccount);
+	}
+
+}

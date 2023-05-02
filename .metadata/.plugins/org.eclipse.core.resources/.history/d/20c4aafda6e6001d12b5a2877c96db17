@@ -1,0 +1,24 @@
+package com.spring.datajpa.singletableinheritance;
+
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("SAVING")
+public class SavingAccountEntity extends BankDetialsEntity{
+
+	private String savingAccount;
+
+	public String getSavingAccount() {
+		return savingAccount;
+	}
+
+	public void setSavingAccount(String savingAccount) {
+		this.savingAccount = savingAccount;
+	}
+
+	
+
+	
+	
+}

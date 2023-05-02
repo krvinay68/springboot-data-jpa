@@ -1,0 +1,20 @@
+package com.spring.datajpa.commandlinerunner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.spring.datajpa.resitory.EmployeeRepository;
+
+public class Bootstrap implements CommandLineRunner{
+
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@Override
+	public void run(String... args) throws Exception {
+	
+		employeeRepository.save(EmployeeEntity)
+		
+	}
+
+}

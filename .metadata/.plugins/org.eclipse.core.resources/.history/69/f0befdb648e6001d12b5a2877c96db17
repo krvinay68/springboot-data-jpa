@@ -1,0 +1,10 @@
+package com.spring.datajpa.resitory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.spring.datajpa.entities.ItemEntity;
+
+public interface ItemPaginationRespository extends PagingAndSortingRepository<ItemEntity, Long> {
+
+}

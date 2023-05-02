@@ -1,0 +1,31 @@
+package com.spring.datajpa.compositekey;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import org.springframework.stereotype.Component;
+
+import com.spring.datajpa.relationship.PhoneNumber;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class CompositeKeyId implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private int id;
+	private String email;
+	
+   
+}

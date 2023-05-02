@@ -1,0 +1,7 @@
+package com.spring.datajpa.transactionmanagement;
+
+public interface BankAccountServive {
+	
+	void transfer(int amount);
+
+}

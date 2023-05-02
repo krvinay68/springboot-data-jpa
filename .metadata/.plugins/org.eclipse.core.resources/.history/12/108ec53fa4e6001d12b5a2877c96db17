@@ -1,0 +1,20 @@
+package com.spring.datajpa.singletableinheritance;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class JpaDataDao {
+
+	@Autowired
+	BankRepository bankRepository;
+	public void insert() {
+		
+		List<CurrentAccountEntity> li= new ArrayList<>();
+		li.add(new CurrentAccountEntity("currentAccount"));
+		bankRepository.saveAll(li);
+	}
+}
